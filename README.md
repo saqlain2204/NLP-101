@@ -1,7 +1,7 @@
 
 # Language Modeling 101
 
-This repository contains code, notes, and experiments for learning about language modeling, inspired by the [Stanford CS336: Large Language Models](https://web.stanford.edu/class/cs336/) course.
+This repository contains code, notes, and experiments for learning about language modeling.
 
 ## Contents
 
