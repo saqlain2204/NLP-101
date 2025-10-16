@@ -1,8 +1,9 @@
-# BPE implementation
+# BPE Implementation
 
 from collections import Counter
 
 def get_stats(vocab):
+    """Count frequency of all symbol pairs in the vocab."""
     pairs = Counter()
     for word, freq in vocab.items():
         symbols = word
@@ -11,6 +12,7 @@ def get_stats(vocab):
     return pairs
 
 def merge_vocab(pair, vocab):
+    """Merge all occurrences of the most frequent pair in the vocab."""
     new_vocab = {}
     bigram = ''.join(pair)
     for word in vocab:
@@ -26,8 +28,8 @@ def merge_vocab(pair, vocab):
         new_vocab[tuple(new_word)] = vocab[word]
     return new_vocab
     
-
 def bpe(corpus, num_merges):
+    """Train BPE on a corpus and return the merges and final vocabulary."""
     vocab = Counter()
     for line in corpus:
         for word in line.split():
@@ -44,6 +46,7 @@ def bpe(corpus, num_merges):
     return merges, vocab
 
 def encode(word, merges):
+    """Encode a word using learned BPE merges."""
     word = tuple(word) + ('</w>',)
     print(f"Start: {word}")
     for idx, pair in enumerate(merges):
@@ -63,11 +66,8 @@ def encode(word, merges):
     else:
         last = word[-1].replace('</w>', '')
         return word[:-1] + (last,) if last else word[:-1]
-        
-    
-    
-            
-    
+
+## Example Usage
 
 if __name__ == "__main__":
     corpus = [
