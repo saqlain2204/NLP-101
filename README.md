@@ -1,7 +1,12 @@
 
-# Language Modeling 101
+# NLP-101
 
-This repository contains code, notes, and experiments for learning about language modeling.
+Welcome to NLP-101, a comprehensive course covering various aspects of Natural Language Processing. This repository contains code, notes, and experiments for learning about NLP concepts and techniques.
+
+## Course Structure
+
+### 1. Language Modeling
+Our first module focuses on Language Modeling, covering fundamental concepts and implementations.
 
 ## Contents
 

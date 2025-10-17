@@ -1,4 +1,4 @@
-site_name: Language Modeling 101
+site_name: NLP-101
 site_author: Saqlain
 theme:
   name: material
@@ -47,15 +47,17 @@ theme:
     code: Roboto Mono
 
 # Repository information
-repo_name: Language-Modeling-101
+repo_name: NLP-101
 repo_url: https://github.com/saqlain2204/Language-Modeling-101
 
 nav:
   - Home: index.md
-  - Tokenization:
-      - Byte Pair Encoding:
-          - BPE: ./Tokenization/BPE/README.md
-          - Implementation: ./Tokenization/BPE/bpe.py
+  - Language Modeling:
+      - Overview: Language-Modeling/index.md
+      - Tokenization:
+          - Byte Pair Encoding:
+              - BPE: Language-Modeling/Tokenization/BPE/README.md
+              - Implementation: Language-Modeling/Tokenization/BPE/bpe.py
 
 markdown_extensions:
   - abbr

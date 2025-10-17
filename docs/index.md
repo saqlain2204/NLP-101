@@ -1,40 +1,34 @@
-# Language Modeling 101
+# Welcome to NLP-101
 
-Welcome to Language Modeling 101 - an educational repository for understanding and implementing fundamental natural language processing (NLP) techniques from scratch.
+Welcome to NLP-101 - a comprehensive introduction to Natural Language Processing (NLP), covering fundamental concepts and advanced techniques that power modern NLP systems.
 
-This project aims to provide clear, well-documented implementations of core language processing algorithms to help learners understand the building blocks of modern NLP systems.
+## What is NLP?
 
-## Overview
+Natural Language Processing is a field of artificial intelligence that focuses on the interaction between computers and human language. It enables machines to read, understand, and derive meaning from human languages in a valuable way.
 
-Modern language models like GPT, BERT, and T5 are built on a foundation of techniques developed over decades of NLP research. This repository explores these fundamental techniques with clean implementations and detailed explanations.
+## Course Structure
 
-## Topics Covered
+This course is organized into modules, each covering essential aspects of NLP:
 
-### Tokenization
+### 1. [Language Modeling](Language-Modeling/index.md)
+Learn about the fundamentals of language modeling, including tokenization techniques and how to build language models from scratch.
 
-Tokenization is the first step in any NLP pipeline - breaking text into meaningful units for processing:
+## About This Course
 
-- [**Byte Pair Encoding (BPE)**](./Tokenization/BPE/README.md): A subword tokenization algorithm that learns to represent common character sequences as single tokens.
-
-## Project Structure
-
-- Each topic has its own directory with:
-  - Implementation files (`.py`)
-  - Detailed README explaining the concept
-  - Examples showing usage
+NLP-101 provides:
+- Clear, well-documented implementations of core NLP concepts
+- Detailed explanations of algorithms and techniques
+- Hands-on examples you can experiment with
+- Progressive learning from basics to advanced topics
 
 ## Getting Started
 
-Browse the topics above to learn about specific algorithms, or clone the repository to experiment with the implementations:
+Explore the course modules in the navigation menu, or clone the repository to experiment with the code:
 
 ```bash
 git clone https://github.com/saqlain2204/Language-Modeling-101.git
 cd Language-Modeling-101
 ```
-
-## Contributing
-
-Contributions are welcome! If you'd like to add a new algorithm implementation, improve documentation, or fix issues, please feel free to submit a pull request.
 
 ---
 
