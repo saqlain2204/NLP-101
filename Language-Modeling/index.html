@@ -11,23 +11,25 @@
       
       
       
+        <link rel="prev" href="..">
       
-        <link rel="next" href="Language-Modeling/">
+      
+        <link rel="next" href="Tokenization/BPE/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>NLP-101</title>
+        <title>Overview - NLP-101</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -46,9 +48,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-nlp-101" class="md-skip">
+        <a href="#language-modeling" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="NLP-101" class="md-header__button md-logo" aria-label="NLP-101" data-md-component="logo">
+    <a href=".." title="NLP-101" class="md-header__button md-logo" aria-label="NLP-101" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Overview
             
           </span>
         </div>
@@ -220,11 +222,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -241,11 +241,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="Language-Modeling/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -287,7 +289,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="NLP-101" class="md-nav__button md-logo" aria-label="NLP-101" data-md-component="logo">
+    <a href=".." title="NLP-101" class="md-nav__button md-logo" aria-label="NLP-101" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -314,32 +316,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -350,83 +330,133 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-nlp" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is NLP?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#course-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Course Structure
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Course Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-language-modeling" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Language Modeling
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#about-this-course" class="md-nav__link">
-    <span class="md-ellipsis">
-      About This Course
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting Started
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
     
       
       
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  
+  <span class="md-ellipsis">
+    Language Modeling
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Language Modeling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tokenization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tokenization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
@@ -460,12 +490,12 @@
   
   
   
-    <a href="Language-Modeling/" class="md-nav__link">
+    <a href="Tokenization/BPE/" class="md-nav__link">
       
   
   
   <span class="md-ellipsis">
-    Language Modeling
+    Byte Pair Encoding
     
   </span>
   
@@ -476,6 +506,22 @@
     </a>
   
 
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -508,28 +554,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-nlp" class="md-nav__link">
+  <a href="#topics-covered" class="md-nav__link">
     <span class="md-ellipsis">
-      What is NLP?
+      Topics Covered
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#course-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Course Structure
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Course Structure">
+    <nav class="md-nav" aria-label="Topics Covered">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-language-modeling" class="md-nav__link">
+  <a href="#1-tokenization" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Language Modeling
+      1. Tokenization
     </span>
   </a>
   
@@ -541,18 +578,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#about-this-course" class="md-nav__link">
+  <a href="#what-is-language-modeling" class="md-nav__link">
     <span class="md-ellipsis">
-      About This Course
+      What is Language Modeling?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#learning-objectives" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Learning Objectives
     </span>
   </a>
   
@@ -577,27 +614,24 @@
   
 
 
-<h1 id="welcome-to-nlp-101">Welcome to NLP-101<a class="headerlink" href="#welcome-to-nlp-101" title="Permanent link">&para;</a></h1>
-<p>Welcome to NLP-101 - a comprehensive introduction to Natural Language Processing (NLP), covering fundamental concepts and advanced techniques that power modern NLP systems.</p>
-<h2 id="what-is-nlp">What is NLP?<a class="headerlink" href="#what-is-nlp" title="Permanent link">&para;</a></h2>
-<p>Natural Language Processing is a field of artificial intelligence that focuses on the interaction between computers and human language. It enables machines to read, understand, and derive meaning from human languages in a valuable way.</p>
-<h2 id="course-structure">Course Structure<a class="headerlink" href="#course-structure" title="Permanent link">&para;</a></h2>
-<p>This course is organized into modules, each covering essential aspects of NLP:</p>
-<h3 id="1-language-modeling">1. <a href="Language-Modeling/">Language Modeling</a><a class="headerlink" href="#1-language-modeling" title="Permanent link">&para;</a></h3>
-<p>Learn about the fundamentals of language modeling, including tokenization techniques and how to build language models from scratch.</p>
-<h2 id="about-this-course">About This Course<a class="headerlink" href="#about-this-course" title="Permanent link">&para;</a></h2>
-<p>NLP-101 provides:
-- Clear, well-documented implementations of core NLP concepts
-- Detailed explanations of algorithms and techniques
-- Hands-on examples you can experiment with
-- Progressive learning from basics to advanced topics</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>Explore the course modules in the navigation menu, or clone the repository to experiment with the code:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/saqlain2204/Language-Modeling-101.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>Language-Modeling-101
-</span></code></pre></div>
-<hr />
-<p>Created by <a href="https://github.com/saqlain2204">Saqlain</a></p>
+<h1 id="language-modeling">Language Modeling<a class="headerlink" href="#language-modeling" title="Permanent link">&para;</a></h1>
+<p>Welcome to the Language Modeling module of NLP-101. This section covers fundamental concepts and implementations in language modeling.</p>
+<h2 id="topics-covered">Topics Covered<a class="headerlink" href="#topics-covered" title="Permanent link">&para;</a></h2>
+<h3 id="1-tokenization">1. Tokenization<a class="headerlink" href="#1-tokenization" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="Tokenization/BPE/">Byte Pair Encoding (BPE)</a></li>
+<li>Understanding BPE algorithm</li>
+<li>Implementation in Python</li>
+<li>Examples and use cases</li>
+</ul>
+<h2 id="what-is-language-modeling">What is Language Modeling?<a class="headerlink" href="#what-is-language-modeling" title="Permanent link">&para;</a></h2>
+<p>Language modeling is a fundamental task in Natural Language Processing that involves predicting the probability of a sequence of words. It forms the backbone of many modern NLP applications, from machine translation to text generation.</p>
+<h2 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Understand basic concepts of language modeling</li>
+<li>Learn different tokenization techniques</li>
+<li>Implement and experiment with various language modeling approaches</li>
+</ul>
 
 
 
@@ -634,15 +668,31 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="Language-Modeling/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="Tokenization/BPE/" class="md-footer__link md-footer__link--next" aria-label="Next: BPE">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Overview
+                BPE
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -684,10 +734,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "header.autohide", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.progress", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.code.select", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "header.autohide", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant.progress", "navigation.prune", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
