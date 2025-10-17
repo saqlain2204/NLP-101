@@ -4,11 +4,9 @@ Welcome to the Language Modeling module of NLP-101. This section covers fundamen
 
 ## Topics Covered
 
-### 1. Tokenization
-- [Byte Pair Encoding (BPE)](Tokenization/BPE/README.md)
-  - Understanding BPE algorithm
-  - Implementation in Python
-  - Examples and use cases
+| Topic | Subtopic | Description | Resources |
+|-------|----------|-------------|-----------|
+| Tokenization | Byte Pair Encoding (BPE) | Subword tokenization algorithm that learns to represent common character sequences as single tokens | [BPE Guide](Tokenization/BPE/README.md), [Python Implementation](Tokenization/BPE/bpe.py) |
 
 ## What is Language Modeling?
 
@@ -16,6 +14,8 @@ Language modeling is a fundamental task in Natural Language Processing that invo
 
 ## Learning Objectives
 
-- Understand basic concepts of language modeling
-- Learn different tokenization techniques
-- Implement and experiment with various language modeling approaches
+| Objective | Description |
+|-----------|-------------|
+| Basic Concepts | Understand fundamental concepts of language modeling and probability distributions over text |
+| Tokenization Techniques | Learn different tokenization approaches including character, word, and subword tokenization |
+| Implementation | Implement and experiment with various language modeling approaches from scratch |

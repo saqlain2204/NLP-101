@@ -10,9 +10,9 @@ Our first module focuses on Language Modeling, covering fundamental concepts and
 
 ## Contents
 
-- **Tokenization**
-  - [BPE (Byte Pair Encoding) README](Tokenization/BPE/README.md)
-  - [BPE Implementation (Python)](Tokenization/BPE/bpe.py)
+| Module | Topic | Description | Resources |
+|--------|-------|-------------|-----------|
+| Language Modeling | Tokenization - BPE | Byte Pair Encoding algorithm for subword tokenization | [README](docs/Language-Modeling/Tokenization/BPE/README.md), [Implementation](docs/Language-Modeling/Tokenization/BPE/bpe.py) |
 
 ## References
 
