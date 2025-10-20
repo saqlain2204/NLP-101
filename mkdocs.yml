@@ -48,7 +48,7 @@ theme:
 
 # Repository information
 repo_name: NLP-101
-repo_url: https://github.com/saqlain2204/Language-Modeling-101
+repo_url: https://github.com/saqlain2204/NLP-101
 
 nav:
   - Home: index.md
