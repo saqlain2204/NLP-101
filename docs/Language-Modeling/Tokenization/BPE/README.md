@@ -1,8 +1,9 @@
+
 # Byte Pair Encoding (BPE)
 
 **Basic Idea:** Train the tokenizer on raw text to automatically determine the vocabulary.
 
-**Intuition:** Common sequences of characters are represented by a single token, rare sequences are represented by many tokens.
+**Intuition:** Common sequences of characters are represented by a single token, while rare sequences are represented by many tokens.
 
 **Algorithm Sketch:**
 1. Start with each character as a token (plus an end-of-word marker).
@@ -14,9 +15,9 @@
 
 BPE is an algorithm originally used for data compression. In NLP, it's used to build subword vocabularies:
 
-1. **Initialization**: Start with all characters in your corpus as separate tokens
-2. **Iterative Merging**: Repeatedly merge the most frequent adjacent pair of tokens
-3. **Stopping Criterion**: Stop after a certain number of merges (vocabulary size)
+1. **Initialization:** Start with all characters in your corpus as separate tokens.
+2. **Iterative Merging:** Repeatedly merge the most frequent adjacent pair of tokens.
+3. **Stopping Criterion:** Stop after a certain number of merges (vocabulary size).
 
 ## Step-by-Step BPE Process
 
@@ -36,15 +37,15 @@ Each word is split into characters with an end-of-word marker:
 
 ### First Few Merge Operations
 
-1. **Find most frequent pair**: `e, r` (appears 3 times)
+1. **Find most frequent pair:** `e, r` (appears 3 times)
    - Merge: `e + r → er`
    - Vocabulary becomes: `l, o, w, </w>`, `l, o, w, er, </w>`, `l, o, w, e, s, t, </w>`, `n, e, w, er, </w>`, `w, i, d, er, </w>`
 
-2. **Find most frequent pair**: `l, o` (appears 3 times)
+2. **Find most frequent pair:** `l, o` (appears 3 times)
    - Merge: `l + o → lo`
    - Vocabulary becomes: `lo, w, </w>`, `lo, w, er, </w>`, `lo, w, e, s, t, </w>`, `n, e, w, er, </w>`, `w, i, d, er, </w>`
 
-3. **Find most frequent pair**: `lo, w` (appears 3 times)
+3. **Find most frequent pair:** `lo, w` (appears 3 times)
    - Merge: `lo + w → low`
    - Vocabulary becomes: `low, </w>`, `low, er, </w>`, `low, e, s, t, </w>`, `n, e, w, er, </w>`, `w, i, d, er, </w>`
 
@@ -130,7 +131,7 @@ def bpe(corpus, num_merges):
     return merges, vocab
 ```
 
-The main BPE algorithm function that:
+The main BPE algorithm function:
 - Initializes a vocabulary where each word is split into individual characters plus an end-of-word marker `</w>`
 - Repeatedly:
   - Counts pair frequencies with `get_stats()`
@@ -200,9 +201,9 @@ print("\nEncoded 'lowest':", encoded)
 ```
 
 This example demonstrates:
-1. **Training**: Creating a BPE model from a small corpus
-2. **Inspection**: Viewing the learned merges and resulting vocabulary
-3. **Application**: Using the model to encode a new word
+1. **Training:** Creating a BPE model from a small corpus
+2. **Inspection:** Viewing the learned merges and resulting vocabulary
+3. **Application:** Using the model to encode a new word
 
 When you run this code, you'll see how the word "lowest" gets tokenized according to the subword units learned during training.
 
