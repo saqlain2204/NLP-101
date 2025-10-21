@@ -38,9 +38,3 @@ memory_allocation = torch.cuda.memory_allocated()
 
 In PyTorch, tensors are pointers to allocated memory, with metadata describing how to access any element of the tensor.
 In pytorch tensors are pointers into allocated memeory with metadata describing how to get to any elemtn of the tensor
-
-
-
-
-
-
