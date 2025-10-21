@@ -53,12 +53,12 @@ repo_url: https://github.com/saqlain2204/NLP-101
 nav:
   - Home: index.md
   - Language Modeling:
-      - Overview: Language-Modeling/index.md
-      - Tokenization:
-          - Byte Pair Encoding:
-              - BPE: Language-Modeling/Tokenization/BPE/README.md
-              - Implementation: Language-Modeling/Tokenization/BPE/bpe.py
-      - Resource Accounting: Language-Modeling/Resource Accounting/README.md
+    - Language-Modeling Overview: Language-Modeling/index.md
+    - Tokenization:
+      - Byte Pair Encoding:
+        - BPE: Language-Modeling/Tokenization/BPE/README.md
+        - Implementation: Language-Modeling/Tokenization/BPE/bpe.py
+    - Resource Accounting: Language-Modeling/Resource Accounting/README.md
 
 markdown_extensions:
   - abbr
