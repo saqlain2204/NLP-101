@@ -26,8 +26,8 @@ NLP-101 provides:
 Explore the course modules in the navigation menu, or clone the repository to experiment with the code:
 
 ```bash
-git clone https://github.com/saqlain2204/Language-Modeling-101.git
-cd Language-Modeling-101
+git clone https://github.com/saqlain2204/NLP-101.git
+cd NLP-101
 ```
 
 ---
