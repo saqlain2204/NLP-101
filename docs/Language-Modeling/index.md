@@ -1,21 +1,31 @@
+
+
 # Language Modeling
 
-Welcome to the Language Modeling module of NLP-101. This section covers fundamental concepts and implementations in language modeling.
+Welcome to the Language Modeling module of NLP-101. This section covers the core concepts, techniques, and practical implementations in language modeling.
 
-## Topics Covered
 
-| Topic | Subtopic | Description | Resources |
-|-------|----------|-------------|-----------|
-| Tokenization | Byte Pair Encoding (BPE) | Subword tokenization algorithm that learns to represent common character sequences as single tokens | [BPE Guide](Tokenization/BPE/README.md), [Python Implementation](Tokenization/BPE/bpe.py) |
+
+
+
+## Module Topics & Resources
+
+| Topics & Resources                                                                                 | Description                                                                                                   |
+|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| [Byte Pair Encoding Guide](Tokenization/BPE/README.md) <br> [BPE Python Implementation](Tokenization/BPE/bpe.py) <br> [Resource Accounting Guide](Resource%20Accounting/README.md) | Subword tokenization (BPE), tensor memory, precision types, and training efficiency in deep learning.         |
+
+---
 
 ## What is Language Modeling?
 
-Language modeling is a fundamental task in Natural Language Processing that involves predicting the probability of a sequence of words. It forms the backbone of many modern NLP applications, from machine translation to text generation.
+Language modeling is a fundamental task in Natural Language Processing (NLP) that involves predicting the probability of a sequence of words. It is the backbone of many modern NLP applications, including machine translation and text generation.
+
+---
 
 ## Learning Objectives
 
-| Objective | Description |
-|-----------|-------------|
-| Basic Concepts | Understand fundamental concepts of language modeling and probability distributions over text |
-| Tokenization Techniques | Learn different tokenization approaches including character, word, and subword tokenization |
-| Implementation | Implement and experiment with various language modeling approaches from scratch |
+| Objective                | Description                                                                 |
+|--------------------------|-----------------------------------------------------------------------------|
+| Basic Concepts           | Understand fundamental concepts of language modeling and probability distributions over text |
+| Tokenization Techniques  | Learn different tokenization approaches including character, word, and subword tokenization |
+| Implementation           | Implement and experiment with various language modeling techniques           |
