@@ -351,6 +351,8 @@
       
         
       
+        
+      
     
     
     
@@ -558,6 +560,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Resource%20Accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resource Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -732,7 +757,7 @@
 
 <h1 id="byte-pair-encoding-bpe">Byte Pair Encoding (BPE)<a class="headerlink" href="#byte-pair-encoding-bpe" title="Permanent link">&para;</a></h1>
 <p><strong>Basic Idea:</strong> Train the tokenizer on raw text to automatically determine the vocabulary.</p>
-<p><strong>Intuition:</strong> Common sequences of characters are represented by a single token, rare sequences are represented by many tokens.</p>
+<p><strong>Intuition:</strong> Common sequences of characters are represented by a single token, while rare sequences are represented by many tokens.</p>
 <p><strong>Algorithm Sketch:</strong>
 1. Start with each character as a token (plus an end-of-word marker).
 2. Count all adjacent token pairs in the corpus.
@@ -741,9 +766,9 @@
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <p>BPE is an algorithm originally used for data compression. In NLP, it's used to build subword vocabularies:</p>
 <ol>
-<li><strong>Initialization</strong>: Start with all characters in your corpus as separate tokens</li>
-<li><strong>Iterative Merging</strong>: Repeatedly merge the most frequent adjacent pair of tokens</li>
-<li><strong>Stopping Criterion</strong>: Stop after a certain number of merges (vocabulary size)</li>
+<li><strong>Initialization:</strong> Start with all characters in your corpus as separate tokens.</li>
+<li><strong>Iterative Merging:</strong> Repeatedly merge the most frequent adjacent pair of tokens.</li>
+<li><strong>Stopping Criterion:</strong> Stop after a certain number of merges (vocabulary size).</li>
 </ol>
 <h2 id="step-by-step-bpe-process">Step-by-Step BPE Process<a class="headerlink" href="#step-by-step-bpe-process" title="Permanent link">&para;</a></h2>
 <p>Let's walk through a simplified example of how BPE works with these words:
@@ -759,20 +784,20 @@
 - <code>w, i, d, e, r, &lt;/w&gt;</code> (wider)</p>
 <h3 id="first-few-merge-operations">First Few Merge Operations<a class="headerlink" href="#first-few-merge-operations" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Find most frequent pair</strong>: <code>e, r</code> (appears 3 times)</li>
+<li><strong>Find most frequent pair:</strong> <code>e, r</code> (appears 3 times)</li>
 <li>Merge: <code>e + r → er</code></li>
 <li>
 <p>Vocabulary becomes: <code>l, o, w, &lt;/w&gt;</code>, <code>l, o, w, er, &lt;/w&gt;</code>, <code>l, o, w, e, s, t, &lt;/w&gt;</code>, <code>n, e, w, er, &lt;/w&gt;</code>, <code>w, i, d, er, &lt;/w&gt;</code></p>
 </li>
 <li>
-<p><strong>Find most frequent pair</strong>: <code>l, o</code> (appears 3 times)</p>
+<p><strong>Find most frequent pair:</strong> <code>l, o</code> (appears 3 times)</p>
 </li>
 <li>Merge: <code>l + o → lo</code></li>
 <li>
 <p>Vocabulary becomes: <code>lo, w, &lt;/w&gt;</code>, <code>lo, w, er, &lt;/w&gt;</code>, <code>lo, w, e, s, t, &lt;/w&gt;</code>, <code>n, e, w, er, &lt;/w&gt;</code>, <code>w, i, d, er, &lt;/w&gt;</code></p>
 </li>
 <li>
-<p><strong>Find most frequent pair</strong>: <code>lo, w</code> (appears 3 times)</p>
+<p><strong>Find most frequent pair:</strong> <code>lo, w</code> (appears 3 times)</p>
 </li>
 <li>Merge: <code>lo + w → low</code></li>
 <li>Vocabulary becomes: <code>low, &lt;/w&gt;</code>, <code>low, er, &lt;/w&gt;</code>, <code>low, e, s, t, &lt;/w&gt;</code>, <code>n, e, w, er, &lt;/w&gt;</code>, <code>w, i, d, er, &lt;/w&gt;</code></li>
@@ -841,7 +866,7 @@
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="n">merges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best</span><span class="p">)</span>
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">return</span> <span class="n">merges</span><span class="p">,</span> <span class="n">vocab</span>
 </span></code></pre></div>
-<p>The main BPE algorithm function that:
+<p>The main BPE algorithm function:
 - Initializes a vocabulary where each word is split into individual characters plus an end-of-word marker <code>&lt;/w&gt;</code>
 - Repeatedly:
   - Counts pair frequencies with <code>get_stats()</code>
@@ -902,9 +927,9 @@
 </span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Encoded &#39;lowest&#39;:&quot;</span><span class="p">,</span> <span class="n">encoded</span><span class="p">)</span>
 </span></code></pre></div>
 <p>This example demonstrates:
-1. <strong>Training</strong>: Creating a BPE model from a small corpus
-2. <strong>Inspection</strong>: Viewing the learned merges and resulting vocabulary
-3. <strong>Application</strong>: Using the model to encode a new word</p>
+1. <strong>Training:</strong> Creating a BPE model from a small corpus
+2. <strong>Inspection:</strong> Viewing the learned merges and resulting vocabulary
+3. <strong>Application:</strong> Using the model to encode a new word</p>
 <p>When you run this code, you'll see how the word "lowest" gets tokenized according to the subword units learned during training.</p>
 <h2 id="advantages-of-bpe">Advantages of BPE<a class="headerlink" href="#advantages-of-bpe" title="Permanent link">&para;</a></h2>
 <ul>
