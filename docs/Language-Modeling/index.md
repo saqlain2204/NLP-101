@@ -8,11 +8,13 @@ Welcome to the Language Modeling module of NLP-101. This section covers the core
 
 
 
+
 ## Module Topics & Resources
 
-| Topics & Resources                                                                                 | Description                                                                                                   |
-|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| [Byte Pair Encoding Guide](Tokenization/BPE/README.md) <br> [BPE Python Implementation](Tokenization/BPE/bpe.py) <br> [Resource Accounting Guide](Resource%20Accounting/README.md) | Subword tokenization (BPE), tensor memory, precision types, and training efficiency in deep learning.         |
+| Topic                      | Description                                                                | Resources                                                                 |
+|----------------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| Byte Pair Encoding (BPE)   | Subword tokenization algorithm for representing common character sequences | [BPE Guide](Tokenization/BPE/README.md) <br> [BPE Python Implementation](Tokenization/BPE/bpe.py) |
+| Resource Accounting        | Tensor memory, precision types, and training efficiency in deep learning   | [Resource Accounting Guide](Resource%20Accounting/README.md)              |
 
 ---
 
