@@ -14,7 +14,7 @@
         <link rel="prev" href="../../">
       
       
-        <link rel="next" href="bpe.py">
+        <link rel="next" href="../../Resource%20Accounting/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -472,8 +472,6 @@
           
         
       
-        
-      
     
     
     
@@ -505,11 +503,6 @@
 
             </a>
             
-              
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
           </div>
         
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
@@ -519,29 +512,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="bpe.py" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Implementation
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
           </ul>
@@ -731,6 +701,15 @@
   <a href="#advantages-of-bpe" class="md-nav__link">
     <span class="md-ellipsis">
       Advantages of BPE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation (Python)
     </span>
   </a>
   
@@ -938,6 +917,86 @@
 <li>Efficient for morphologically rich languages</li>
 <li>Widely used in modern NLP systems (GPT, BERT, etc.)</li>
 </ul>
+<p><strong>Basic Idea:</strong> Train the tokenizer on raw text to automatically determine the vocabulary.</p>
+<h2 id="implementation-python">Implementation (Python)<a class="headerlink" href="#implementation-python" title="Permanent link">&para;</a></h2>
+<p>The following is a compact reference implementation of BPE. The implementation is included here so you don't need a separate Python file.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_stats</span><span class="p">(</span><span class="n">vocab</span><span class="p">):</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Count frequency of all symbol pairs in the vocab.&quot;&quot;&quot;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">pairs</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">freq</span> <span class="ow">in</span> <span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="n">symbols</span> <span class="o">=</span> <span class="n">word</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">symbols</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>            <span class="n">pairs</span><span class="p">[(</span><span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">symbols</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])]</span> <span class="o">+=</span> <span class="n">freq</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="k">return</span> <span class="n">pairs</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">merge_vocab</span><span class="p">(</span><span class="n">pair</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Merge all occurrences of the most frequent pair in the vocab.&quot;&quot;&quot;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">new_vocab</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">bigram</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">vocab</span><span class="p">:</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>        <span class="n">new_word</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">pair</span><span class="p">:</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>                <span class="n">new_word</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bigram</span><span class="p">)</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>                <span class="n">new_word</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>        <span class="n">new_vocab</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">new_word</span><span class="p">)]</span> <span class="o">=</span> <span class="n">vocab</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="k">return</span> <span class="n">new_vocab</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">bpe</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="n">num_merges</span><span class="p">):</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Train BPE on a corpus and return the merges and final vocabulary.&quot;&quot;&quot;</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>    <span class="n">vocab</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>            <span class="n">vocab</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;&lt;/w&gt;&#39;</span><span class="p">,)]</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>    <span class="n">merges</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_merges</span><span class="p">):</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>        <span class="n">pairs</span> <span class="o">=</span> <span class="n">get_stats</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">pairs</span><span class="p">:</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>            <span class="k">break</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>        <span class="n">best</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">pairs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">pairs</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>        <span class="n">vocab</span> <span class="o">=</span> <span class="n">merge_vocab</span><span class="p">(</span><span class="n">best</span><span class="p">,</span> <span class="n">vocab</span><span class="p">)</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>        <span class="n">merges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best</span><span class="p">)</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>    <span class="k">return</span> <span class="n">merges</span><span class="p">,</span> <span class="n">vocab</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">merges</span><span class="p">):</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode a word using learned BPE merges.&quot;&quot;&quot;</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>    <span class="n">word</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;&lt;/w&gt;&#39;</span><span class="p">,)</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>    <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">merges</span><span class="p">:</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>        <span class="n">new_word</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">word</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">pair</span><span class="p">:</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>                <span class="n">new_word</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>                <span class="n">new_word</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>        <span class="n">word</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">new_word</span><span class="p">)</span>
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>    <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&lt;/w&gt;&#39;</span><span class="p">:</span>
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>        <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>        <span class="n">last</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;/w&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>        <span class="k">return</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">last</span><span class="p">,)</span> <span class="k">if</span> <span class="n">last</span> <span class="k">else</span> <span class="n">word</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="c1"># Example</span>
+</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>    <span class="n">corpus</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>        <span class="s2">&quot;low lower lowest&quot;</span><span class="p">,</span>
+</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>        <span class="s2">&quot;newer wider&quot;</span><span class="p">,</span>
+</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>    <span class="p">]</span>
+</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>    <span class="n">merges</span><span class="p">,</span> <span class="n">vocab</span> <span class="o">=</span> <span class="n">bpe</span><span class="p">(</span><span class="n">corpus</span><span class="p">,</span> <span class="n">num_merges</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Learned merges:&quot;</span><span class="p">,</span> <span class="n">merges</span><span class="p">)</span>
+</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final vocab sample:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">vocab</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">10</span><span class="p">])</span>
+</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Encoded &#39;lowest&#39;:&quot;</span><span class="p">,</span> <span class="n">encode</span><span class="p">(</span><span class="s2">&quot;lowest&quot;</span><span class="p">,</span> <span class="n">merges</span><span class="p">))</span>
+</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Encoded &#39;lowest&#39;:&quot;</span><span class="p">,</span> <span class="n">encode</span><span class="p">(</span><span class="s2">&quot;lowest&quot;</span><span class="p">,</span> <span class="n">merges</span><span class="p">))</span>
+</span></code></pre></div>
 <hr />
 <p><em>Created by Saqlain.</em></p>
 
@@ -994,13 +1053,13 @@
         
         
           
-          <a href="bpe.py" class="md-footer__link md-footer__link--next" aria-label="Next: Implementation">
+          <a href="../../Resource%20Accounting/" class="md-footer__link md-footer__link--next" aria-label="Next: Resource Accounting">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Implementation
+                Resource Accounting
               </div>
             </div>
             <div class="md-footer__button md-icon">
