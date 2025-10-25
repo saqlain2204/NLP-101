@@ -23,7 +23,7 @@ This module covers:
 
 | Topic                | Description                                                                | Resources                                                                 |
 |----------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| Byte Pair Encoding   | Subword tokenization algorithm for representing common character sequences | [BPE Guide](docs/Language-Modeling/Tokenization/BPE/README.md) <br> [BPE Implementation](docs/Language-Modeling/Tokenization/BPE/bpe.py) |
+| Byte Pair Encoding   | Subword tokenization algorithm for representing common character sequences | [BPE Guide](docs/Language-Modeling/Tokenization/BPE/README.md) (implementation included in the README) |
 | Resource Accounting  | Understanding tensor memory, precision types, and training efficiency      | [Resource Accounting Guide](docs/Language-Modeling/Resource%20Accounting/README.md) |
 
 ## References

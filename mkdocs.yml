@@ -57,7 +57,6 @@ nav:
     - Tokenization:
       - Byte Pair Encoding:
         - BPE: Language-Modeling/Tokenization/BPE/README.md
-        - Implementation: Language-Modeling/Tokenization/BPE/bpe.py
     - Resource Accounting: Language-Modeling/Resource Accounting/README.md
 
 markdown_extensions:
