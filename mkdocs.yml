@@ -55,8 +55,7 @@ nav:
   - Language Modeling:
     - Language-Modeling Overview: Language-Modeling/index.md
     - Tokenization:
-      - Byte Pair Encoding:
-        - BPE: Language-Modeling/Tokenization/BPE/README.md
+      - Byte Pair Encoding: Language-Modeling/Tokenization/BPE/README.md
     - Resource Accounting: Language-Modeling/Resource Accounting/README.md
 
 markdown_extensions:
