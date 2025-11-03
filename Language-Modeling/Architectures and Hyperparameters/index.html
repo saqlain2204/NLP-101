@@ -11,10 +11,8 @@
       
       
       
-        <link rel="prev" href="../Tokenization/BPE/">
+        <link rel="prev" href="../Resource%20Accounting/">
       
-      
-        <link rel="next" href="../Architectures%20and%20Hyperparameters/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Resource Accounting - NLP-101</title>
+        <title>Architectures and Hyperparameters - NLP-101</title>
       
     
     
@@ -76,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resource-accounting" class="md-skip">
+        <a href="#normalization-and-activations" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Resource Accounting
+              Architectures and Hyperparameters
             
           </span>
         </div>
@@ -477,6 +475,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../Resource%20Accounting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resource Accounting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -494,7 +515,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Accounting
+    Architectures and Hyperparameters
     
   </span>
   
@@ -507,7 +528,7 @@
   
   
   <span class="md-ellipsis">
-    Resource Accounting
+    Architectures and Hyperparameters
     
   </span>
   
@@ -530,47 +551,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-points" class="md-nav__link">
+  <a href="#normalization" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Points
+      Normalization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-normalization-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Normalization (LayerNorm)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rms-normalization-rmsnorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      RMS Normalization (RMSNorm)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-choose-one-vs-the-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why choose one vs the other
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feed-forward-layers-ffn-common-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feed-Forward Layers (FFN) — common forms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tensor-memory-types" class="md-nav__link">
+  <a href="#activations" class="md-nav__link">
     <span class="md-ellipsis">
-      Tensor Memory Types
+      Activations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical notes
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#training-implications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Training Implications
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pytorch-example-device-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch Example: Device &amp; Memory
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-tensors-work-in-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      How Tensors Work in PyTorch
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -578,29 +629,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Architectures%20and%20Hyperparameters/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Architectures and Hyperparameters
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -640,47 +668,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-points" class="md-nav__link">
+  <a href="#normalization" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Points
+      Normalization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-normalization-layernorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Normalization (LayerNorm)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rms-normalization-rmsnorm" class="md-nav__link">
+    <span class="md-ellipsis">
+      RMS Normalization (RMSNorm)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-choose-one-vs-the-other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why choose one vs the other
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feed-forward-layers-ffn-common-forms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feed-Forward Layers (FFN) — common forms
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tensor-memory-types" class="md-nav__link">
+  <a href="#activations" class="md-nav__link">
     <span class="md-ellipsis">
-      Tensor Memory Types
+      Activations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#practical-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical notes
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#training-implications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Training Implications
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pytorch-example-device-memory" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch Example: Device &amp; Memory
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-tensors-work-in-pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      How Tensors Work in PyTorch
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -703,66 +761,97 @@
   
 
 
-<h1 id="resource-accounting">Resource Accounting<a class="headerlink" href="#resource-accounting" title="Permanent link">&para;</a></h1>
-<h2 id="key-points">Key Points<a class="headerlink" href="#key-points" title="Permanent link">&para;</a></h2>
+<h1 id="normalization-and-activations">Normalization and Activations<a class="headerlink" href="#normalization-and-activations" title="Permanent link">&para;</a></h1>
+<h2 id="normalization">Normalization<a class="headerlink" href="#normalization" title="Permanent link">&para;</a></h2>
+<h3 id="layer-normalization-layernorm">Layer Normalization (LayerNorm)<a class="headerlink" href="#layer-normalization-layernorm" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Tensors</strong> are the core data structure in machine learning, used for:</li>
-<li>Parameters</li>
-<li>Gradients</li>
-<li>Optimizer states</li>
-<li>Data activations</li>
+<li>Used in the original Transformer ("Attention Is All You Need").</li>
+<li>Formula: let x be a vector, μ = mean(x), σ^2 = var(x):</li>
 </ul>
-<h2 id="tensor-memory-types">Tensor Memory Types<a class="headerlink" href="#tensor-memory-types" title="Permanent link">&para;</a></h2>
+<p>The LayerNorm operation is commonly written as:</p>
+<p>$$
+  \mathrm{LayerNorm}(x) = \gamma \frac{x - \mu}{\sqrt{\sigma^2 + \varepsilon}} + \beta
+  $$</p>
 <ul>
-<li><strong>float32 (single precision):</strong></li>
-<li>Standard for full precision in ML</li>
-<li>
-<p>Good balance of range and accuracy</p>
-</li>
-<li>
-<p><strong>float16 (half precision):</strong></p>
-</li>
-<li>Uses less memory</li>
-<li>
-<p>Not ideal for very small numbers</p>
-</li>
-<li>
-<p><strong>bfloat16 (brain floating point):</strong></p>
-</li>
-<li>Same memory as float32</li>
-<li>
-<p>More bits for exponent, fewer for fraction</p>
-</li>
-<li>
-<p><strong>fp8 (8-bit floating point):</strong></p>
-</li>
-<li>Very low memory usage</li>
+<li>Pre-LN vs Post-LN:</li>
+<li>Post-LN (original): normalization after the residual block.</li>
+<li>Pre-LN (common now): normalization before the sub-layer (attention/FFN). Pre-LN often improves gradient stability and training dynamics for deep models.</li>
 </ul>
-<p><strong>Memory usage depends on:</strong>
-- Number of values
-- Data type of each value</p>
-<h2 id="training-implications">Training Implications<a class="headerlink" href="#training-implications" title="Permanent link">&para;</a></h2>
+<h3 id="rms-normalization-rmsnorm">RMS Normalization (RMSNorm)<a class="headerlink" href="#rms-normalization-rmsnorm" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Training with float32 is stable but memory-intensive</li>
-<li>Training with float16, bfloat16, or fp8 saves memory but can cause instability</li>
-<li>Mixed precision training is common (e.g., float32 for attention, bfloat16 for feed-forward)</li>
-<li>Tensors are on CPU by default; use GPU for acceleration</li>
+<li>RMSNorm removes the mean-centering step and uses root-mean-square for normalization. It has fewer operations and parameters than LayerNorm and can be faster/more memory efficient.</li>
 </ul>
-<h2 id="pytorch-example-device-memory">PyTorch Example: Device &amp; Memory<a class="headerlink" href="#pytorch-example-device-memory" title="Permanent link">&para;</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">num_gpus</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_gpus</span><span class="p">):</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">properties</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">memory_allocation</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_allocated</span><span class="p">()</span> <span class="k">if</span> <span class="n">device</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">else</span> <span class="kc">None</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Memory allocated: </span><span class="si">{</span><span class="n">memory_allocation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<h2 id="how-tensors-work-in-pytorch">How Tensors Work in PyTorch<a class="headerlink" href="#how-tensors-work-in-pytorch" title="Permanent link">&para;</a></h2>
+<p>A common RMSNorm formulation is:</p>
+<p>$$
+  \mathrm{RMSNorm}(x) = \gamma \frac{x}{\sqrt{\tfrac{1}{d}\sum_{i=1}^d x_i^2 + \varepsilon}}
+  $$</p>
 <ul>
-<li>Tensors are pointers to allocated memory</li>
-<li>Metadata describes how to access each element</li>
+<li>Notes:</li>
+<li>No trainable bias (β) in the basic RMSNorm formulation.</li>
+<li>Slightly cheaper (no subtraction/mean computation) and used in many modern architectures.</li>
+</ul>
+<h3 id="why-choose-one-vs-the-other">Why choose one vs the other<a class="headerlink" href="#why-choose-one-vs-the-other" title="Permanent link">&para;</a></h3>
+<ul>
+<li>LayerNorm provides full centering and scaling; RMSNorm is a lightweight alternative with similar empirical performance in many cases.</li>
+<li>Pre-LN residual blocks + either norm usually give stable training for deep transformers.</li>
+</ul>
+<h2 id="feed-forward-layers-ffn-common-forms">Feed-Forward Layers (FFN) — common forms<a class="headerlink" href="#feed-forward-layers-ffn-common-forms" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Standard: FFN(x) = W2 * f(W1 x + b1) + b2</li>
+<li>Standard: </li>
+</ul>
+<p>$$
+  \mathrm{FFN}(x) = W_2\, f(W_1 x + b_1) + b_2
+  $$</p>
+<ul>
+<li>W₁: input → hidden, activation f (ReLU/GeLU/etc.), W₂: hidden → output.</li>
+<li>Gated/Mixture variants are common (GLU/GeGLU/SwiGLU) where activations include element-wise gating for improved expressivity.</li>
+</ul>
+<h2 id="activations">Activations<a class="headerlink" href="#activations" title="Permanent link">&para;</a></h2>
+<p>Common activation functions used in transformer FFNs and variants:</p>
+<ul>
+<li>ReLU: f(x) = max(0, x)</li>
+<li>ReLU: </li>
+</ul>
+<p>$$
+  \mathrm{ReLU}(x) = \max(0, x)
+  $$
+  - Simple, cheap; used in early Transformers.</p>
+<ul>
+<li>GeLU (Gaussian Error Linear Unit):</li>
+<li>GeLU (Gaussian Error Linear Unit):</li>
+<li>Common approximation:</li>
+</ul>
+<p>$$
+  \mathrm{GeLU}(x) \approx x\,\Phi(x)
+  $$</p>
+<p>where Φ is the standard normal CDF. Many implementations use a fast approximation for efficiency.
+  - Used in GPT and many transformer variants; smoother than ReLU.</p>
+<ul>
+<li>SiLU / Swish: f(x) = x * sigmoid(x)</li>
+<li>SiLU / Swish:</li>
+</ul>
+<p>$$
+  \mathrm{SiLU}(x) = x\,\sigma(x)
+  $$</p>
+<p>where σ(x)=1/(1+e^{-x}) is the logistic sigmoid.
+  - Smooth, can improve performance in some models.</p>
+<ul>
+<li>Gated activations (GLU, GeGLU, SwiGLU, etc.):</li>
+<li>Example (GeGLU): f([x_a, x_b]) = x_a * GeLU(x_b)</li>
+<li>Example (GeGLU):</li>
+</ul>
+<p>$$
+  \mathrm{GeGLU}(x_a, x_b) = x_a \odot \mathrm{GeLU}(x_b)
+  $$</p>
+<p>where ⊙ denotes element-wise multiplication. Gated activations often improve parameter efficiency and performance compared to plain activations.</p>
+<ul>
+<li>Others: ELU, SELU, LiGLU — used in specific contexts or research.</li>
+</ul>
+<h3 id="practical-notes">Practical notes<a class="headerlink" href="#practical-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Most modern transformer implementations use GeLU (or a gated variant) in the FFN.</li>
+<li>When optimizing for memory/speed, consider RMSNorm + GeLU (or gated GeLU) with pre-LN transformer blocks.</li>
 </ul>
 
 
@@ -801,7 +890,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Tokenization/BPE/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Byte Pair Encoding">
+          <a href="../Resource%20Accounting/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Resource Accounting">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -811,27 +900,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Byte Pair Encoding
+                Resource Accounting
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../Architectures%20and%20Hyperparameters/" class="md-footer__link md-footer__link--next" aria-label="Next: Architectures and Hyperparameters">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Architectures and Hyperparameters
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
