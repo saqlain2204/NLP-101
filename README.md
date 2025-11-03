@@ -25,6 +25,7 @@ This module covers:
 |----------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------------|
 | Byte Pair Encoding   | Subword tokenization algorithm for representing common character sequences | [BPE Guide](docs/Language-Modeling/Tokenization/BPE/README.md) (implementation included in the README) |
 | Resource Accounting  | Understanding tensor memory, precision types, and training efficiency      | [Resource Accounting Guide](docs/Language-Modeling/Resource%20Accounting/README.md) |
+| Architectures & Hyperparameters | Guidance on model architecture choices, normalization, activations, and hyperparameter trade-offs | [Architectures & Hyperparameters](docs/Language-Modeling/Architectures%20and%20Hyperparameters/README.md) |
 
 ## References
 
