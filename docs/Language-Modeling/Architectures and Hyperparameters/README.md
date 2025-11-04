@@ -76,17 +76,27 @@ Common activation functions used in transformer FFNs and variants:
   where σ(x)=1/(1+e^{-x}) is the logistic sigmoid.
   - Smooth, can improve performance in some models.
 
-- Gated activations (GLU, GeGLU, SwiGLU, etc.):
-  - Example (GeGLU): f([x_a, x_b]) = x_a * GeLU(x_b)
-   - Example (GeGLU):
+- Gated activations:
+  FF ReGLU:
 
   $$
-  \mathrm{GeGLU}(x_a, x_b) = x_a \odot \mathrm{GeLU}(x_b)
+  \mathrm{FF\ ReGLU}(x) = (\max(0, xW_1) \otimes (xV)) W_2
   $$
 
-  where ⊙ denotes element-wise multiplication. Gated activations often improve parameter efficiency and performance compared to plain activations.
+  FF GeGLU:
 
-- Others: ELU, SELU, LiGLU — used in specific contexts or research.
+  $$
+  \mathrm{FF\ GeGLU}(x, W, V, W_2) = (\mathrm{GLU}(xW) \otimes (xV)) W_2
+  $$
+
+  SwiGLU (Swish is $x\cdot\sigma(x)$):
+
+  $$
+  \mathrm{FF\ SwiGLU}(x, W, V, W_2) = (\mathrm{Swish}(xW) \otimes (xV)) W_2
+  $$
+  
+  V -> extra parameter
+  Note: Gated models use smaller dimensions for dff by 2/3
 
 ### Practical notes
 - Most modern transformer implementations use GeLU (or a gated variant) in the FFN.
