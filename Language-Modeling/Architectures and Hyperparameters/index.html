@@ -837,17 +837,22 @@
 <p>where σ(x)=1/(1+e^{-x}) is the logistic sigmoid.
   - Smooth, can improve performance in some models.</p>
 <ul>
-<li>Gated activations (GLU, GeGLU, SwiGLU, etc.):</li>
-<li>Example (GeGLU): f([x_a, x_b]) = x_a * GeLU(x_b)</li>
-<li>Example (GeGLU):</li>
+<li>Gated activations:
+  FF ReGLU:</li>
 </ul>
 <p>$$
-  \mathrm{GeGLU}(x_a, x_b) = x_a \odot \mathrm{GeLU}(x_b)
+  \mathrm{FF ReGLU}(x) = (\max(0, xW_1) \otimes (xV)) W_2
   $$</p>
-<p>where ⊙ denotes element-wise multiplication. Gated activations often improve parameter efficiency and performance compared to plain activations.</p>
-<ul>
-<li>Others: ELU, SELU, LiGLU — used in specific contexts or research.</li>
-</ul>
+<p>FF GeGLU:</p>
+<p>$$
+  \mathrm{FF GeGLU}(x, W, V, W_2) = (\mathrm{GLU}(xW) \otimes (xV)) W_2
+  $$</p>
+<p>SwiGLU (Swish is <span class="arithmatex"><span class="MathJax_Preview">x\cdot\sigma(x)</span><script type="math/tex">x\cdot\sigma(x)</script></span>):</p>
+<p>$$
+  \mathrm{FF SwiGLU}(x, W, V, W_2) = (\mathrm{Swish}(xW) \otimes (xV)) W_2
+  $$</p>
+<p>V -&gt; extra parameter
+  Note: Gated models use smaller dimensions for dff by &#8532;</p>
 <h3 id="practical-notes">Practical notes<a class="headerlink" href="#practical-notes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Most modern transformer implementations use GeLU (or a gated variant) in the FFN.</li>
