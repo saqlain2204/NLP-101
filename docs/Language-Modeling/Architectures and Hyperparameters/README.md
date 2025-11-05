@@ -103,3 +103,30 @@ Common activation functions used in transformer FFNs and variants:
 - When optimizing for memory/speed, consider RMSNorm + GeLU (or gated GeLU) with pre-LN transformer blocks.
 
 
+## Serial vs Parallel Layers
+
+In standard transformer blocks, layers are computed **serially**: first attention, then MLP.
+
+Some recent models use a **parallel** formulation, where the MLP and attention operate in parallel on the same normalized input.
+
+
+
+**Serial (standard) formulation:**
+
+<br>
+$$
+y = x + \mathrm{MLP}(\mathrm{LayerNorm}(x + \mathrm{Attention}(\mathrm{LayerNorm}(x))))
+$$
+<br>
+
+**Parallel formulation:**
+
+<br>
+$$
+y = x + \mathrm{MLP}(\mathrm{LayerNorm}(x)) + \mathrm{Attention}(\mathrm{LayerNorm}(x))
+$$
+<br>
+
+**Benefits:**
+- Parallel layers enable the MLP and attention input matrix multiplications to be fused, resulting in ~15% faster training at large scale.
+- Ablation experiments show a small quality drop at 8B scale, but no degradation at 62B scale; extrapolation suggests parallel layers are quality-neutral at even larger scales (e.g., 540B).
