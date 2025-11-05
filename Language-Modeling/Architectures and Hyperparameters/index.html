@@ -625,6 +625,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#serial-vs-parallel-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial vs Parallel Layers
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -739,6 +748,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serial-vs-parallel-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial vs Parallel Layers
+    </span>
+  </a>
   
 </li>
       
@@ -858,6 +876,24 @@
 <li>Most modern transformer implementations use GeLU (or a gated variant) in the FFN.</li>
 <li>When optimizing for memory/speed, consider RMSNorm + GeLU (or gated GeLU) with pre-LN transformer blocks.</li>
 </ul>
+<h2 id="serial-vs-parallel-layers">Serial vs Parallel Layers<a class="headerlink" href="#serial-vs-parallel-layers" title="Permanent link">&para;</a></h2>
+<p>In standard transformer blocks, layers are computed <strong>serially</strong>: first attention, then MLP.</p>
+<p>Some recent models use a <strong>parallel</strong> formulation, where the MLP and attention operate in parallel on the same normalized input.</p>
+<p><strong>Serial (standard) formulation:</strong></p>
+<p><br>
+$$
+y = x + \mathrm{MLP}(\mathrm{LayerNorm}(x + \mathrm{Attention}(\mathrm{LayerNorm}(x))))
+$$
+<br></p>
+<p><strong>Parallel formulation:</strong></p>
+<p><br>
+$$
+y = x + \mathrm{MLP}(\mathrm{LayerNorm}(x)) + \mathrm{Attention}(\mathrm{LayerNorm}(x))
+$$
+<br></p>
+<p><strong>Benefits:</strong>
+- Parallel layers enable the MLP and attention input matrix multiplications to be fused, resulting in ~15% faster training at large scale.
+- Ablation experiments show a small quality drop at 8B scale, but no degradation at 62B scale; extrapolation suggests parallel layers are quality-neutral at even larger scales (e.g., 540B).</p>
 
 
 
